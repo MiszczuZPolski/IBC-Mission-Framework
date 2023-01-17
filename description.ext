@@ -1,0 +1,16 @@
+#include "defines.hpp"
+#include "dialogs.hpp"
+#include "CfgFunctions.hpp"
+#include "CfgMusic.hpp"
+
+class CfgDebriefingSections 
+{
+    class acex_killTracker {
+        title = "Acex Killed Events";
+        variable = "acex_killTracker_outputText";
+    };
+};
+
+/* onLoadName */
+author			= "MiszczuZPolski";
+OnLoadName		= "Operacja Weserubung";
