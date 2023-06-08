@@ -5,7 +5,7 @@
  *	Parametr(s):
  */
 
-_time = param[0];
+params ["_time"];
 
 for "_i" from (_time + 6) to 0 step -1 do 
 {

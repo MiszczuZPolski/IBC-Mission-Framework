@@ -28,9 +28,11 @@ _unitGroup = groupId (group _unit);
 
 /****************************************************************/
 
-[_time] call ibc_fnc_introDialogCD;
+[_time] execVM "functions\fn_introDialogCD.sqf";
 
 _unit enableSimulation false;
+[_unit, "blockRadio", "IBC_Intro", true] call ace_common_fnc_statusEffect_set;
+[_unit, "blockSpeaking", "IBC_Intro", true] call ace_common_fnc_statusEffect_set;
 
 /* 
  *	dAn_rsc_Picture 
@@ -135,6 +137,10 @@ _array = [1200, 1100, 1101, 1102, 1103, 1104, 1105];
 sleep 7;
 hint parseText "Misja rozpoczyna się!<br /> Symulacja gracza: <t color='#ff0000'>Włączona</t><br /> Powodzenia!";
 sleep 0.5;
+[_unit, currentWeapon _unit, currentMuzzle _unit] call ace_safemode_fnc_lockSafety;
+[_unit] call ace_weaponselect_fnc_putWeaponAway;
+[_unit, "blockRadio", "IBC_Intro", false] call ace_common_fnc_statusEffect_set;
+[_unit, "blockSpeaking", "IBC_Intro", false] call ace_common_fnc_statusEffect_set;
 _unit enableSimulation true;
 closeDialog 1;
 sleep 2.5;
